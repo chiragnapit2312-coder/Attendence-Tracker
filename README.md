@@ -74,7 +74,7 @@ git clone https://github.com/your-username/Attendance-Tracker.git
 
 ## 📸 Screenshot
 -----------------------------
-https://ibb.co/n8zVZmd4
+https://i.ibb.co/x8JcPL9w/ey-Jp-ZCI6-Im1f-Nm-E0-NGFh-NTRj-OGU4-ODE5-MTg4-N2-Fh-YTA0-Njk1-NDA4-Zjk6c2-Vka-W1lbn-Q6-Ly84-ZTZi-Nj-A2-Yj-A1-ZDli.jpg
 ----------------------------
 
 ---
