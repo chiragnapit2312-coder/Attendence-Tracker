@@ -50,7 +50,7 @@ Attendance-Tracker/
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Attendance-Tracker.git
+git clone https://github.com/chiragnapit2312-coder/Attendence-Tracker.git
 ```
 
 2. Open the project folder.
