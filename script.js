@@ -1,89 +1,155 @@
-let nameInput = document.getElementById("name");
+// ---------- Login User ----------
+
+let user = JSON.parse(localStorage.getItem("login"));
+
+document.getElementById("userName").innerHTML =
+"Welcome, " + user.name;
+
+
+// ---------- Elements ----------
+
+let name = document.getElementById("name");
 let presentBtn = document.getElementById("presentBtn");
 let absentBtn = document.getElementById("absentBtn");
+let studentList = document.getElementById("studentList");
 
 let total = document.getElementById("total");
 let present = document.getElementById("present");
 let absent = document.getElementById("absent");
 
-let studentList = document.getElementById("studentList");
+let logout = document.getElementById("logout");
 
-let totalCount = 0;
-let presentCount = 0;
-let absentCount = 0;
 
-// Present Button
-presentBtn.addEventListener("click", function () {
+// ---------- Logout ----------
 
-    if (nameInput.value == "") {
-        alert("Enter Student Name");
-        return;
-    }
+logout.addEventListener("click", function () {
 
-    let li = document.createElement("li");
-    li.innerHTML = `
-        ${nameInput.value} - Present
-        <button>Delete</button>
-    `;
+    localStorage.removeItem("login");
 
-    studentList.appendChild(li);
+    window.location.href = "login.html";
 
-    totalCount++;
-    presentCount++;
+});
+
+
+// ---------- Attendance Data ----------
+
+let students = JSON.parse(localStorage.getItem("students")) || [];
+
+
+// ---------- Save Data ----------
+
+function saveData(){
+
+    localStorage.setItem("students", JSON.stringify(students));
+
+}
+
+
+// ---------- Count ----------
+
+function updateCount(){
+
+    let totalCount = students.length;
+
+    let presentCount = 0;
+
+    let absentCount = 0;
+
+    students.forEach(function(student){
+
+        if(student.status=="Present"){
+            presentCount++;
+        }
+        else{
+            absentCount++;
+        }
+
+    });
 
     total.innerHTML = totalCount;
+
     present.innerHTML = presentCount;
 
-    nameInput.value = "";
+    absent.innerHTML = absentCount;
 
-    let deleteBtn = li.querySelector("button");
+}
 
-    deleteBtn.addEventListener("click", function () {
-        li.remove();
 
-        totalCount--;
-        presentCount--;
+// ---------- Show Students ----------
 
-        total.innerHTML = totalCount;
-        present.innerHTML = presentCount;
+function showStudents(){
+
+    studentList.innerHTML="";
+
+    students.forEach(function(student,index){
+
+        let li=document.createElement("li");
+
+        li.innerHTML=
+        student.name+" - "+student.status+
+        " <button onclick='deleteStudent("+index+")'>Delete</button>";
+
+        studentList.appendChild(li);
+
     });
 
-});
+    updateCount();
 
-// Absent Button
-absentBtn.addEventListener("click", function () {
+}
+// ---------- Add Student ----------
 
-    if (nameInput.value == "") {
+function addStudent(status){
+
+    let studentName = name.value.trim();
+
+    if(studentName==""){
         alert("Enter Student Name");
         return;
     }
 
-    let li = document.createElement("li");
-    li.innerHTML = `
-        ${nameInput.value} - Absent
-        <button>Delete</button>
-    `;
-
-    studentList.appendChild(li);
-
-    totalCount++;
-    absentCount++;
-
-    total.innerHTML = totalCount;
-    absent.innerHTML = absentCount;
-
-    nameInput.value = "";
-
-    let deleteBtn = li.querySelector("button");
-
-    deleteBtn.addEventListener("click", function () {
-        li.remove();
-
-        totalCount--;
-        absentCount--;
-
-        total.innerHTML = totalCount;
-        absent.innerHTML = absentCount;
+    students.push({
+        name: studentName,
+        status: status
     });
 
+    saveData();
+
+    showStudents();
+
+    name.value="";
+
+}
+
+
+// ---------- Delete Student ----------
+
+function deleteStudent(index){
+
+    students.splice(index,1);
+
+    saveData();
+
+    showStudents();
+
+}
+
+
+// ---------- Buttons ----------
+
+presentBtn.addEventListener("click",function(){
+
+    addStudent("Present");
+
 });
+
+
+absentBtn.addEventListener("click",function(){
+
+    addStudent("Absent");
+
+});
+
+
+// ---------- First Load ----------
+
+showStudents();

@@ -6,33 +6,65 @@
     <title>Attendance Tracker</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        if(localStorage.getItem("login")==null){
+            window.location.href="login.html";
+        }
+    </script>
+
 </head>
 <body>
 
-    <div class="container">
-        <img src="https://i.ibb.co/x8JcPL9w/ey-Jp-ZCI6-Im1f-Nm-E0-NGFh-NTRj-OGU4-ODE5-MTg4-N2-Fh-YTA0-Njk1-NDA4-Zjk6c2-Vka-W1lbn-Q6-Ly84-ZTZi-Nj-A2-Yj-A1-ZDli.jpg" alt="Attendance Tracker">
-        <h1>Attendance Tracker</h1>
+<div class="container">
 
-        <input type="text" id="name" placeholder="Enter Student Name">
+    <img src="https://i.ibb.co/x8JcPL9w/ey-Jp-ZCI6-Im1f-Nm-E0-NGFh-NTRj-OGU4-ODE5-MTg4-N2-Fh-YTA0-Njk1-NDA4-Zjk6c2-Vka-W1lbn-Q6-Ly84-ZTZi-Nj-A2-Yj-A1-ZDli.jpg" alt="Attendance">
 
-        <div class="buttons">
-            <button id="presentBtn">Present</button>
-            <button id="absentBtn">Absent</button>
-        </div>
+    <h1>Attendance Tracker</h1>
 
-        <div class="summary">
-            <p>Total : <span id="total">0</span></p>
-            <p>Present : <span id="present">0</span></p>
-            <p>Absent : <span id="absent">0</span></p>
-        </div>
+    <h3 id="userName"></h3>
 
-        <h2>Student List</h2>
+    <button id="logout">Logout</button>
 
-        <ul id="studentList"></ul>
+    <input
+        type="text"
+        id="name"
+        placeholder="Enter Student Name"
+    >
+
+    <div class="btn">
+
+        <button id="presentBtn">
+            Present
+        </button>
+
+        <button id="absentBtn">
+            Absent
+        </button>
 
     </div>
 
-    <script src="script.js"></script>
+    <div class="count">
+
+        <h3>Total :
+            <span id="total">0</span>
+        </h3>
+
+        <h3>Present :
+            <span id="present">0</span>
+        </h3>
+
+        <h3>Absent :
+            <span id="absent">0</span>
+        </h3>
+
+    </div>
+
+    <ul id="studentList"></ul>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>

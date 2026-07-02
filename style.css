@@ -1,81 +1,95 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
 body{
-    background: #f2f2f2;
-    font-family: Arial, sans-serif;
-}
-img{
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    background:#f2f2f2;
 }
 
 .container{
-    width: 350px;
-    margin: 40px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+    width:400px;
+    margin:40px auto;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
 }
 
 h1{
-    margin-bottom: 20px;
+    margin-bottom:10px;
+}
+
+#userName{
+    color:#444;
+    margin-bottom:15px;
 }
 
 input{
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+    width:100%;
+    padding:10px;
+    margin:10px 0;
 }
 
 button{
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
+    padding:10px 20px;
+    margin:5px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
 }
 
-.summary{
-    margin: 20px 0;
+#presentBtn{
+    background:green;
+    color:white;
 }
 
-.summary p{
-    margin: 8px 0;
+#absentBtn{
+    background:red;
+    color:white;
+}
+
+#logout{
+    background:#222;
+    color:white;
+    margin-bottom:15px;
+}
+
+.count{
+    margin:20px 0;
+}
+
+.count h3{
+    margin:8px 0;
 }
 
 ul{
-    list-style: none;
-    margin-top: 15px;
+    list-style:none;
 }
 
 li{
-    background: #eee;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
-}
-
-li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #eee;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#eee;
+    padding:10px;
+    margin:10px 0;
+    border-radius:5px;
 }
 
 li button{
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
+    background:red;
+    color:white;
+    padding:5px 10px;
 }
